@@ -10,6 +10,10 @@ gender VARCHAR(6),
 ip_address VARCHAR(15)
 );
 
+-- copies fake data from a csv file located on the c:\ drive
+COPY mock(first_name,last_name,email,gender,ip_address)
+FROM 'c:\MOCK_DATA.csv' DELIMITER ',' CSV HEADER;
+
 -- creates the table called southwest
 CREATE TABLE southwest (
 first_name VARCHAR(50) NOT NULL,
@@ -42,10 +46,6 @@ SELECT * FROM southwest
 UPDATE southwest
 SET email = 'brokenemail@email.com'
 WHERE last_name = 'born'
-
--- copies fake data from a csv file located on the c:\ drive
-COPY mock(first_name,last_name,email,gender,ip_address)
-FROM 'c:\MOCK_DATA.csv' DELIMITER ',' CSV HEADER;
 
 -- selects all columns from the mock table but limits the results to 10 rows
 SELECT *
